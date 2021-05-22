@@ -1,0 +1,89 @@
+#first {
+    width: 95%;
+    height: 500px;
+    margin: 5px;
+    border: 3px solid black;
+    position: relative;
+  }
+  #first #second {
+    width: 95%;
+    height: 95%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #second #third {
+    width: 95%;
+    height: 90%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #third #forth {
+    width: 95%;
+    height: 85%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #forth #fifth {
+    width: 95%;
+    height: 80%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #fifth #sixth {
+    width: 95%;
+    height: 75%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #sixth #seventh {
+    width: 95%;
+    height: 70%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #seventh #eigth {
+    width: 95%;
+    height: 65%;
+    border: 3px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.rotatingText {
+    position: absolute;
+    margin: 30px 320px;
+    animation: rotation 2s infinite linear;
+}
+
+.rotatingText:hover {
+    animation-play-state: paused;
+}
+
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}

@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <app-countdown-timer [timeSet]="timeSet" [buttonstate]= "buttonstate"></app-countdown-timer>
+        </div>
+        <div class="col-6">
+            <app-countdown-timer-set-up (timeSet)="setTimer($event)"
+             (buttonStartPause)="setButtonState($event)"
+             (clickDataArray)="setClickDataArray($event)"></app-countdown-timer-set-up>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <app-start-stop-timer [clickData]="clickData"></app-start-stop-timer>
+        </div>
+        <div class="col-6">
+            <app-start-pause-counter [startCount]="startCount" [pauseCount]= "pauseCount"></app-start-pause-counter>
+        </div>
+    </div>
+</div>

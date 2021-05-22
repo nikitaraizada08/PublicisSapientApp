@@ -1,0 +1,11 @@
+<div id="main">
+    <form [formGroup]="timer" class="m-5">
+        <label class="m-2">Enter Timer Limit</label>
+        <input formControlName="time" type="number" />
+    </form>
+    <div class='col-6' id="buttons">
+        <button type="button" class="btn btn-default ml-1" [disabled]="!(timer.valid)" (click)="timerStartPause()">
+            {{buttonText}}</button>
+        <button type="button" class="btn btn-default" (click)="resetTimer()">Reset</button>
+    </div>
+</div>

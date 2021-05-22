@@ -1,0 +1,34 @@
+[
+    { 
+            "name": "Arun",
+            "class": 3,
+            "section": "A",
+            "english": 25,
+            "maths": 50,
+            "science": 25
+    },
+    {
+            "name": "Shelly",
+            "class": 6,
+            "section": "B",
+            "english": 87,
+            "maths": 48,
+            "science": 30
+    },
+    {
+        "name": "Nikita",
+        "class": 9,
+        "section": "E",
+        "english": 90,
+        "maths": 78,
+        "science": 89
+    },
+    {
+        "name": "Tia",
+        "class": 5,
+        "section": "F",
+        "english": 100,
+        "maths": 78,
+        "science": 80
+    }
+]
