@@ -20,7 +20,7 @@ export class SubjectCountdownTimerSetupComponent implements OnInit {
 
   constructor(private subjectCountdownService: SubjectCountdownService) {
     this.buttonState = false;
-    this.clickData = []
+    this.clickData = [];
     this.buttonText = 'Start';
     this.timer = new FormGroup({
       time: new FormControl(0, Validators.required)
