@@ -4,7 +4,7 @@
         <input formControlName="time" type="number" />
     </form>
     <div class='col-6' id="buttons">
-        <button type="button" class="btn btn-default ml-1" [disabled]="!(timer.valid)" (click)="timerStartPause()">
+        <button type="button" class="btn btn-default" [disabled]="!(timer.valid)" (click)="timerStartPause()">
             {{buttonText}}</button>
         <button type="button" class="btn btn-default" (click)="resetTimer()">Reset</button>
     </div>
