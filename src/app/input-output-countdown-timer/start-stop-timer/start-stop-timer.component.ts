@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ClickDetails } from '@app/subject-countdown-timer/subject-counter.interface';
 
 @Component({
   selector: 'app-start-stop-timer',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StartStopTimerComponent implements OnInit {
 
-  @Input() clickData: any;
+  @Input() clickData: ClickDetails[] = [];
 
   constructor() { }
 

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
+import { Drinks } from '@app/e-commerce/e-commerce.interface';
 
 @Injectable({
     providedIn: 'root',
@@ -12,15 +13,15 @@ import { catchError, retry } from 'rxjs/operators';
   /**
    * Get list of alcoholic drinks
    */
-  getCocktails(): Observable<object> {
-    return this.http.get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`)
-    .pipe(
-      retry(1),
-      catchError(this.handleError)
-      );
+  public getCocktails(): Observable<Drinks> {
+    const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail`;
+    return this.http.get<Drinks>(url).pipe(
+        map(response => response),
+        catchError(this.handleError)
+    )
   }
 
-  handleError(error: any) {
+  private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error) {
         // client-side error

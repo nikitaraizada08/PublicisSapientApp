@@ -1,7 +1,7 @@
 <table id="t01">
     <tr class="header">
       <th *ngFor="let header of headers; let i = index">{{header | uppercase}}
-          <i class="fa" [ngClass]="{'fa-minus ': count === 0  ,'fa-chevron-up ' : count === 1 , 'fa-chevron-down ' : count === 2 }" (click)="sort(header, i)"></i>
+          <i class="fa" [ngClass]="{'fa-minus ': count === 0  ,'fa-chevron-up ' : count === 1 , 'fa-chevron-down ' : count === 2 }" (click)="sort(header)"></i>
       </th>
     </tr>
     <tr *ngFor="let student of sortedDetails">

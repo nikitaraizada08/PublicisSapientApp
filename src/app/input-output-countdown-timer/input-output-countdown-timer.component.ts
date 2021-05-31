@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClickDetails } from '@app/subject-countdown-timer/subject-counter.interface';
 
 @Component({
   selector: 'app-input-output-countdown-timer',
@@ -6,21 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./input-output-countdown-timer.component.scss']
 })
 export class InputOutputCountdownTimerComponent implements OnInit {
-  public timeSet: number;
-  public buttonstate: boolean;
-  public clickData: any;
-  public startCount: number;
-  public pauseCount: number;
+  public timeSet: number = 0;
+  public buttonstate: boolean = false;
+  public clickData: ClickDetails[] = [];
+  public startCount: number = 0;
+  public pauseCount: number = 0;
 
-  constructor() {
-    this.buttonstate = false;
-    this.timeSet = 0;
-    this.startCount = 0
-    this.pauseCount = 0
-   }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   setTimer(time: number): void {
     this.timeSet = time;
@@ -30,13 +25,13 @@ export class InputOutputCountdownTimerComponent implements OnInit {
     this.buttonstate = state;
   }
 
-  setClickDataArray(data: any): void {
+  setClickDataArray(data: ClickDetails[]): void {
     this.clickData = data;
     this.setCount(data);
   }
 
-  setCount(val: any): void {
-    const startData = val.filter((data:any) => data.state.includes('Start'));
+  setCount(val: ClickDetails[]): void {
+    const startData = val.filter((data:ClickDetails) => data?.state?.includes('Start'));
     this.startCount = startData.length;
     this.pauseCount = val.length - this.startCount;
   }

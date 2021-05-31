@@ -1,31 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { StudentsData } from './table.interface';
 
 @Component({
   selector: 'app-dynamic-table',
   templateUrl: './dynamic-table.component.html',
   styleUrls: ['./dynamic-table.component.scss']
 })
-export class DynamicTableComponent implements OnInit {
-  public studentsData : any;
+export class DynamicTableComponent implements OnInit, OnDestroy {
+  private subscriptions = new Subscription();
+  public studentsData : StudentsData[] = [];
   public headers: string[] = [];
   public count: number= 0;
-  public details: any;
-  public sortedDetails: any;
+  public details: StudentsData[] = [];
+  public sortedDetails: StudentsData[] = [];
 
   constructor(private route: ActivatedRoute) { 
   }
 
   ngOnInit(): void {
-    this.count = 0
-    this.route.data.subscribe((data: Data) => this.studentsData = data['dynamicTable']);
-    this.details = [...this.studentsData];
-    this.sortedDetails = [...this.details];
-    this.headers = Object.keys(this.studentsData[0]);
-    console.log(this.headers);
+    this.subscriptions.add(
+      this.route.data.subscribe((data: Data) => {
+        this.studentsData = data['dynamicTable'],
+        this.details = [...this.studentsData];
+        this.sortedDetails = [...this.details];
+        this.headers = Object.keys(this.studentsData[0]);
+      })
+    )
   }
 
-  sort(header: string, index: number) : void {
+  public sort(header: string) : void {
     if (this.count < 2){
       this.count = this.count + 1;
     } else {
@@ -62,6 +67,9 @@ export class DynamicTableComponent implements OnInit {
         break;
       }
     }
+  }
+  ngOnDestroy(): void {
+    this.subscriptions.unsubscribe();
   }
 
 }

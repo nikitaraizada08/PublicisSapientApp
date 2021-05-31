@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SubjectCountdownService } from './subject-countdown.service';
+import { SubjectCountdownService } from '@app/subject-countdown-timer/subject-countdown.service';
 
 @Component({
   selector: 'app-subject-countdown',

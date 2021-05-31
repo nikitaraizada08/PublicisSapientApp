@@ -11,7 +11,7 @@ export class DynamicTableResolverService {
     private dynamicTableService: DynamicTableService
   ) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+  public resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.dynamicTableService.getTableData();
   }
 }

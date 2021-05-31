@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SubjectCountdownService } from '../subject-countdown.service';
-import { ClickDetails } from '../subject-counter.interface';
+import { SubjectCountdownService } from '@app/subject-countdown-timer/subject-countdown.service';
+import { ClickDetails } from '@app/subject-countdown-timer/subject-counter.interface';
 
 @Component({
   selector: 'app-subject-countdown-timer-setup',
@@ -16,7 +16,7 @@ export class SubjectCountdownTimerSetupComponent implements OnInit {
   public time: number = 0;
   public clickData: ClickDetails[];
   public interval: any;
-  public timeSet: any;
+  public timeSet: number = 0;
 
   constructor(private subjectCountdownService: SubjectCountdownService) {
     this.buttonState = false;
@@ -76,7 +76,7 @@ export class SubjectCountdownTimerSetupComponent implements OnInit {
   }
 
   setCount(): void {
-    const startData = this.clickData.filter((data:any) => data.state.includes('Start'));
+    const startData = this.clickData.filter((data:ClickDetails) => data?.state?.includes('Start'));
     const startCount = startData.length;
     const pauseCount = this.clickData.length - startCount;
     this.subjectCountdownService.setStartPauseCount(startCount, pauseCount);

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ClickDetails } from '@app/subject-countdown-timer/subject-counter.interface';
 
 @Component({
   selector: 'app-countdown-timer-set-up',
@@ -8,18 +9,15 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CountdownTimerSetUpComponent implements OnInit {
   public timer: FormGroup;
-  public buttonState: boolean;
+  public buttonState: boolean = false;
   public count = 0;
-  public buttonText: string;
-  public clickData: any;
+  public buttonText: string = 'Start';
+  public clickData: ClickDetails[] = [];
   @Output() timeSet = new EventEmitter<number>();
   @Output() buttonStartPause = new EventEmitter<boolean>();
-  @Output() clickDataArray = new EventEmitter<any>();
+  @Output() clickDataArray = new EventEmitter<ClickDetails[]>();
 
   constructor() {
-    this.buttonState = false;
-    this.clickData = []
-    this.buttonText = 'Start';
     this.timer = new FormGroup({
       time: new FormControl(0, Validators.required)
     });

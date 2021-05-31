@@ -1,4 +1,4 @@
-export interface table {
+export interface StudentsData {
     name: string,
     class: number,
     section: string,

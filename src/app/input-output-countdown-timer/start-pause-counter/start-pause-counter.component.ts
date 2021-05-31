@@ -7,13 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class StartPauseCounterComponent implements OnInit {
 
-  @Input() public startCount: number;
-  @Input() public pauseCount: number;
+  @Input() public startCount: number = 0;
+  @Input() public pauseCount: number = 0;
 
-  constructor() {
-    this.startCount = 0;
-    this.pauseCount = 0;
-  }
+  constructor() {}
 
   ngOnInit(): void {}
 }

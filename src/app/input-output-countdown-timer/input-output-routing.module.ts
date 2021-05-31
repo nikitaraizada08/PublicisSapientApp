@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { InputOutputCountdownTimerComponent } from './input-output-countdown-timer.component';
+import { InputOutputCountdownTimerComponent } from '@app/input-output-countdown-timer/input-output-countdown-timer.component';
 
 const routes: Routes = [
   {
